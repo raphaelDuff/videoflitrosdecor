@@ -1,0 +1,24 @@
+function filtro = espelho(pathname, filename)
+        
+        v = VideoReader ([fullfile(pathname, filename)]);           
+        i=1;
+        j=1;
+        video= struct('frame',[]);
+        
+    while hasFrame (v)
+        X = readFrame (v);
+        Xrefletido = fliplr(X);
+        video(i).frame= Xrefletido;
+        i=i+1;
+    end
+
+    v = VideoWriter('SeuVideo.mp4','MPEG-4');
+    open(v)
+    
+    for j=1:1:size(video,2)
+        writeVideo(v,video(j).frame);   
+    end
+
+close(v)
+h = msgbox({'Video Gravado com Sucesso!'});
+end
