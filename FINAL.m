@@ -33,7 +33,11 @@ switch choice
         case 'Câmera Térmica'
             map = colormap(jet(256));
             cores(pathname, filename, map);
-end   
+end
+
+linkGIT='https://github.com/bombrider/videoflitrosdecor'
+web(linkGIT);
+
 
 % Caixa de diálogo para escolha de filtro, com cinco opções
 function choice = escolhaFiltro
